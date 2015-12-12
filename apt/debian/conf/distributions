@@ -1,7 +1,7 @@
 Origin: MXE packages
 Label: MXE packages
 Codename: wheezy
-Architectures: amd64 i386
+Architectures: amd64
 Components: main
 Description: MXE packages
 SignWith: BF9AB431
@@ -9,7 +9,7 @@ SignWith: BF9AB431
 Origin: MXE packages
 Label: MXE packages
 Codename: jessie
-Architectures: amd64 i386
+Architectures: amd64
 Components: main
 Description: MXE packages
 SignWith: BF9AB431
