@@ -2,6 +2,18 @@
 
 set -xue
 
+for d in \
+    apt/debian/db \
+    apt/debian/dists \
+    apt/debian/pool \
+    deb-control \
+    list \
+    log \
+    tar; \
+do
+    [ -d $d ] && echo 'run "git clean -fdx"' && exit 1
+done
+
 MXEDIR=$1
 export REPREPRO_BASE_DIR=$(pwd)/apt/debian
 
