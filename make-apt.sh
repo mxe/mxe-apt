@@ -27,15 +27,17 @@ for ext in tar.xz list deb-control; do
     DIR=$(echo $ext | sed 's/.xz//')
     mkdir -p $DIR
     for target in \
+        $($MXEDIR/ext/config.guess) \
         i686-w64-mingw32.static \
         i686-w64-mingw32.shared \
-        x86-64-w64-mingw32.static \
-        x86-64-w64-mingw32.shared; \
+        x86_64-w64-mingw32.static \
+        x86_64-w64-mingw32.shared; \
     do
-        mkdir -p $DIR/mxe-$target
+        target2=$(echo $target | sed 's/_/-/g')
+        mkdir -p $DIR/mxe-$target2
         cp \
-            $MXEDIR/mxe-$target-*.$ext \
-            $DIR/mxe-$target/
+            $MXEDIR/mxe-$target2-*.$ext \
+            $DIR/mxe-$target2/
     done
 done
 
