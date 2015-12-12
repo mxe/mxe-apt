@@ -27,5 +27,4 @@ for ext in tar.xz list deb-control; do
     done
 done
 
-mkdir -p log
-cp -r $MXEDIR/log log
+cp -r $MXEDIR/log .
