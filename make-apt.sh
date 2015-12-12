@@ -6,7 +6,7 @@ MXEDIR=$1
 export REPREPRO_BASE_DIR=$(pwd)/apt/debian
 
 for dist in wheezy jessie; do
-    reprepro includedeb $dist \
+    reprepro -C main includedeb $dist \
         $MXEDIR/mxe-*.deb \
         $MXEDIR/$dist/mxe-*.deb
 done
