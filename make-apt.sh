@@ -3,16 +3,13 @@
 set -xue
 
 MXEDIR=$1
-BASEDIR=$(pwd)
+export REPREPRO_BASE_DIR=$(pwd)/apt/debian
 
-cd apt/debian
-sed "s@BASEDIR@$BASEDIR@" < conf/options.in > conf/options
 for dist in wheezy jessie; do
     reprepro includedeb $dist \
         $MXEDIR/mxe-*.deb \
         $MXEDIR/$dist/mxe-*.deb
 done
-cd ../..
 
 for ext in tar.xz list deb-control do
     DIR=$(echo $ext | sed 's/.xz//')
