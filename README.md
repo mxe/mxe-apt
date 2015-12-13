@@ -2,13 +2,13 @@
 
 How to use.
 
-0. Dependencies:
+  * Dependencies:
 
-  * Install [MXE dependencies](http://mxe.cc/#requirements-debian)
-  * Install lua, tsort, fakeroot, dpkg-deb
+    * Install [MXE dependencies](http://mxe.cc/#requirements-debian)
+    * Install lua, tsort, fakeroot, dpkg-deb
 
 
-1. Build MXE:
+  * Build MXE:
 
 ```
 $ git clone https://github.com/mxe/mxe /usr/lib/mxe
@@ -16,7 +16,7 @@ $ cd /usr/lib/mxe
 $ lua tools/build-pkg.lua &> build-pkg.log
 ```
 
-2. Deploy:
+  * Deploy:
 
 ```
 $ git clone https://github.com/starius/mxe-apt ~/mxe-apt
