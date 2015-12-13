@@ -2,6 +2,12 @@
 
 How to use.
 
+0. Dependencies:
+
+  * Install [MXE dependencies](http://mxe.cc/#requirements-debian)
+  * Install lua, tsort, fakeroot, dpkg-deb
+
+
 1. Build MXE:
 
 ```
