@@ -5,7 +5,8 @@ How to use.
   * Dependencies:
 
     * Install [MXE dependencies](http://mxe.cc/#requirements-debian)
-    * Install lua, tsort, fakeroot, dpkg-deb
+    * Install [build-pkg dependencies](https://github.com/mxe/mxe/blob/master/tools/build-pkg.lua)
+    * Install reprepro
 
 
   * Build MXE:
