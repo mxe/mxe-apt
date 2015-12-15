@@ -24,6 +24,7 @@ for dist in wheezy jessie; do
     reprepro -C main includedeb $dist \
         $MXEDIR/mxe-*.deb \
         $MXEDIR/$dist/mxe-*.deb
+    cp -r $MXEDIR/$dist .
 done
 
 for ext in tar.xz list deb-control; do
