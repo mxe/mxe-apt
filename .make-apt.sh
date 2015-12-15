@@ -7,11 +7,14 @@ for d in \
     apt/debian/dists \
     apt/debian/pool \
     deb-control \
+    deb-control.tar.xz \
     list \
+    list.tar.xz \
     log \
+    log.tar.xz \
     tar; \
 do
-    [ -d $d ] && echo 'run "git clean -fdx"' && exit 1
+    [ -e $d ] && echo 'run "git clean -fdx"' && exit 1
 done
 
 MXEDIR=$1
@@ -42,3 +45,7 @@ for ext in tar.xz list deb-control; do
 done
 
 cp -r $MXEDIR/log .
+
+for d in list deb-control log; do
+    tar -cJf $d.tar.xz $d
+done
