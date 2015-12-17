@@ -3,32 +3,33 @@
 set -xue
 
 for d in \
-    apt/debian/db \
-    apt/debian/dists \
-    apt/debian/pool \
-    deb-control \
-    deb-control.tar.xz \
-    list \
-    list.tar.xz \
-    log \
-    log.tar.xz \
-    tar; \
+    repos/apt/debian/db \
+    repos/apt/debian/dists \
+    repos/apt/debian/pool \
+    repos/deb-control \
+    repos/deb-control.tar.xz \
+    repos/list \
+    repos/list.tar.xz \
+    repos/log \
+    repos/log.tar.xz \
+    repos/tar; \
 do
     [ -e $d ] && echo 'run "git clean -fdx"' && exit 1
 done
 
 MXEDIR=$1
-export REPREPRO_BASE_DIR=$(pwd)/apt/debian
+export REPREPRO_BASE_DIR=$(pwd)/repos/apt/debian
 
 for dist in wheezy jessie; do
     reprepro -C main includedeb $dist \
         $MXEDIR/mxe-*.deb \
         $MXEDIR/$dist/mxe-*.deb
-    cp -r $MXEDIR/$dist .
+    # copy directories wheezy/ and jessie/
+    cp -r $MXEDIR/$dist repos/
 done
 
 for ext in tar.xz list deb-control; do
-    DIR=$(echo $ext | sed 's/.xz//')
+    DIR=repos/$(echo $ext | sed 's/.xz//')
     mkdir -p $DIR
     cp $MXEDIR/*.$ext $DIR
     for target in \
@@ -46,8 +47,8 @@ for ext in tar.xz list deb-control; do
     done
 done
 
-cp -r $MXEDIR/log .
+cp -r $MXEDIR/log repos/
 
 for d in list deb-control log; do
-    tar -cJf $d.tar.xz $d
+    tar -C repos -cJf repos/$d.tar.xz $d
 done
