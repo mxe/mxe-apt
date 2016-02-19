@@ -20,7 +20,7 @@ $ lua tools/build-pkg.lua &> build-pkg.log
   * Deploy:
 
 ```
-$ git clone https://github.com/starius/mxe-apt ~/mxe-apt
+$ git clone https://github.com/mxe/mxe-apt ~/mxe-apt
 $ cd ~/mxe-apt
 $ ./make-apt.sh /usr/lib/mxe
 $ cd ~/www
