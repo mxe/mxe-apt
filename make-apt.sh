@@ -2,6 +2,11 @@
 
 set -xue
 
+( ! egrep -q 'personal-digest-preferences SHA(256|384|512)' ~/.gnupg/gpg.conf ) \
+    && echo 'Update ~/.gnupg/gpg.conf to use SHA2 in preference to SHA1' \
+    && echo 'See https://keyring.debian.org/creating-key.html' \
+    && exit 1
+
 for d in \
     repos/apt/debian/db \
     repos/apt/debian/dists \
