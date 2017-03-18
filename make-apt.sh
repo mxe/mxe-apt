@@ -57,3 +57,10 @@ cp -r $MXEDIR/log repos/
 for d in list deb-control log; do
     tar -C repos -cJf repos/$d.tar.xz $d
 done
+
+find repos/{deb-control*,list*,tar,build-pkg.log,jessie,wheezy,log*} \
+    -type f -print0 \
+| xargs -0 --max-args 1000 -I % sha256sum % \
+| sed 's@  repos/@  @' \
+| gpg --clearsign \
+> repos/files.sha256sum.asc
